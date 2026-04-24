@@ -1,4 +1,5 @@
 // biome-ignore-all assist/source/organizeImports: internal-only import markers must not be reordered
+import { feature } from 'bun:bundle'
 import addDir from './commands/add-dir/index.js'
 import autofixPr from './commands/autofix-pr/index.js'
 import backfillSessions from './commands/backfill-sessions/index.js'
@@ -107,13 +108,13 @@ const subscribePr = false
 const ultraplan = false
   ? require('./commands/ultraplan.js').default
   : null
-const torch = false ? require('./commands/torch.js').default : null
-const peersCmd = false
+const torch = feature('TORCH') ? require('./commands/torch.js').default : null
+const peersCmd = feature('UDS_INBOX')
   ? (
       require('./commands/peers/index.js') as typeof import('./commands/peers/index.js')
     ).default
   : null
-const forkCmd = true
+const forkCmd = feature('FORK_SUBAGENT')
   ? (
       require('./commands/fork/index.js') as typeof import('./commands/fork/index.js')
     ).default

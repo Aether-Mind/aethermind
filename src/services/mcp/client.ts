@@ -1,3 +1,4 @@
+import { feature } from 'bun:bundle'
 import type {
   Base64ImageSource,
   ContentBlockParam,
@@ -113,7 +114,7 @@ import { normalizeNameForMCP } from './normalization.js'
 import { getLoggingSafeMcpBaseUrl } from './utils.js'
 
 /* eslint-disable @typescript-eslint/no-require-imports */
-const fetchMcpSkillsForClient = true
+const fetchMcpSkillsForClient = feature('MCP_SKILLS')
   ? (
     require('../../skills/mcpSkills.js') as typeof import('../../skills/mcpSkills.js')
   ).fetchMcpSkillsForClient
