@@ -1,6 +1,6 @@
 {
   "name": "@aethermind-ai/aethermind",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AetherMind - Advanced agentic AI system with hash-pointer context management and self-discovery capabilities",
   "type": "module",
   "bin": {
