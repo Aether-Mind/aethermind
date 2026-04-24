@@ -1,3 +1,4 @@
+import { feature } from 'bun:bundle'
 import { c as _c } from "react-compiler-runtime";
 import chalk from 'chalk';
 import { mkdir } from 'fs/promises';
@@ -26,7 +27,7 @@ import { ListItem } from '../design-system/ListItem.js';
 import { getProjectMemoryPathForSelector } from './memoryFileSelectorPaths.js';
 
 /* eslint-disable @typescript-eslint/no-require-imports */
-const teamMemPaths = true ? require('../../memdir/teamMemPaths.js') as typeof import('../../memdir/teamMemPaths.js') : null;
+const teamMemPaths = feature('TEAMMEM') ? require('../../memdir/teamMemPaths.js') as typeof import('../../memdir/teamMemPaths.js') : null;
 /* eslint-enable @typescript-eslint/no-require-imports */
 
 interface ExtendedMemoryFileInfo extends MemoryFileInfo {

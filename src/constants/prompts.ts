@@ -1,4 +1,5 @@
 // biome-ignore-all assist/source/organizeImports: internal-only import markers must not be reordered
+import { feature } from 'bun:bundle'
 import { type as osType, version as osVersion, release as osRelease } from 'os'
 import { env } from '../utils/env.js'
 import { getIsGit } from '../utils/git.js'
@@ -62,7 +63,7 @@ import { isMcpInstructionsDeltaEnabled } from '../utils/mcpInstructionsDelta.js'
 
 // Dead code elimination: conditional imports for feature-gated modules
 /* eslint-disable @typescript-eslint/no-require-imports */
-const getCachedMCConfigForFRC = true
+const getCachedMCConfigForFRC = feature('CACHED_MICROCOMPACT')
   ? (
       require('../services/compact/cachedMCConfig.js') as typeof import('../services/compact/cachedMCConfig.js')
     ).getCachedMCConfig
